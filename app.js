@@ -8,6 +8,7 @@ const multer = require('multer');
 const csrf = require('csurf');
 const flash = require('connect-flash');
 const helmet = require('helmet');
+const compression = require('compression');
 
 
 const bookingRoutes = require('./routes/booking');
@@ -62,6 +63,8 @@ const csrfProtection = csrf();
 app.use(helmet({
   contentSecurityPolicy: false}));
 app.use(bodyParser.urlencoded( { extended: false } ));
+
+app.use(compression());
 
 app.use(
     multer({ storage: fileStorage , fileFilter: fileFilter}).single('image')
