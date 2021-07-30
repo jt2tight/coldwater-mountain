@@ -1,0 +1,733 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: black;  
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.1rem;
+    
+}
+
+.main-content {
+    width: 100%; 
+    min-height: 100vh;
+    margin: auto auto;
+}
+
+.landing-intro-mobile {
+    display: none;
+}
+
+hr {
+    margin: 2.5% 0;
+}
+
+.hr-container {
+    margin: 0 auto;
+    width: 60%;
+}
+
+h2 {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 2.25rem;
+    letter-spacing: .5rem;
+
+}
+
+h3 {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: .40rem;
+
+}
+
+h4 {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 1.15rem;
+    letter-spacing:.30rem;
+}
+
+.content {
+    display: flex;
+}
+
+
+
+.section1 {
+    display: inline-block;
+    position: absolute;   
+    width: 100%; 
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.first-content-mobile {
+    display: none;
+    overflow: hidden; 
+}
+
+
+
+#home-img {
+    background: url('/images/coldwater1.jpg');
+    margin-left: auto;
+    margin-right: auto;
+    width: 56%;
+    height: 76vh;
+    display: flex;
+}
+
+#home-headers {
+    margin-top: 22%;
+    margin-left: 30%;
+    margin-right: auto;
+    color: white;
+    font-family: 'Crimson Text', serif;
+    
+}
+
+#intro-header {
+    display: block;
+}
+
+#home-headers h1{
+    font-size: 3.25rem;
+    text-align: right;
+}
+
+#home-headers h3{
+    text-align: right;
+    font-size: 1.4rem;
+}
+
+.section-container {
+    height: auto;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#section3 {
+    margin-top: 8%;
+}
+
+.content-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+}
+
+
+
+.content-container h1 {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: 1rem;
+}
+
+.block-content {
+    margin-top: 10%;
+}
+
+.block-content-header {
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.block-content-content {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7rem;
+}
+
+.block-content-images {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.block-content-images img{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+    
+}
+
+.content-container-cards {
+    width: 50%;
+    display: flex;
+    margin: 2rem auto;
+
+}
+
+.content-card-m {
+    width: 65%;
+    height: auto;
+    /* display: inline-flex; */
+    /* position: absolute; */
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.content-card-m-img {
+    width: 75%;
+    height: auto;
+    position: relative; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-card-m-img img {
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+.content-card-sm {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    margin: 0 2rem;
+    position: relative;
+}
+
+.content-card-sm-logo {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    margin: 0 2rem;
+    position: relative;
+}
+
+.content-card-sm-img {
+    position: relative;
+}
+
+.content-card-sm-header {
+    margin: 2rem auto;
+    text-align: center;
+
+}
+
+
+.content-card-sm-img img{
+    width: 100%;
+    height: auto;
+
+}
+
+.content-card-sm-img-logo img{
+    width: 100%;
+    height: auto;
+
+}
+
+.content-card-sm-content {
+    font-size: 1.25rem;
+    line-height: 1.8rem;
+    text-align: center;
+
+}
+
+#sts {
+    width: 50%;
+    margin-top: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.block-content-video {
+    width: 100%;
+    display: flex;
+    margin: auto auto;
+}
+
+.block-content-video-mobile {
+    display: none;
+}
+
+#sts-video {
+    margin: auto auto;
+    margin-bottom: 5%;
+    
+}
+
+#the-experience {
+    margin-top: 5%;
+}
+
+.centered-btn-container {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    margin: auto auto;
+
+     
+}
+
+
+.centered-btn-container a {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    text-align: center;
+    text-decoration: none;
+    padding: 20px 20px;
+    background-color: rgb(82, 189, 171);
+    color: white;
+    font-size: 2.5rem;
+
+}
+
+.centered-btn-container a:hover {
+    background-color: rgb(103, 219, 200);
+}
+
+.footer {
+    height: 10vh;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+
+}
+
+.inner-footer {
+    width: 60%;
+    margin: auto auto;
+    margin-top: 10%;
+    
+}
+
+.footer ul {
+    margin: auto auto;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.footer li {
+    color: black;
+    margin: auto 5%;
+    list-style: none;
+    
+}
+
+#social-media-links {
+    font-size: 2.5rem;
+    
+}
+
+.footer a {
+    color: black;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: rgb(79, 201, 180);
+    text-decoration: none;
+}
+
+
+.footer-bottom {
+    position: relative;
+    height: 100%;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.footer-bottom img {
+    margin: auto auto;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: 2;
+}
+
+#social-media-nav {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    z-index: 3;
+    bottom: -550%;
+    left: 0;
+
+}
+
+#social-media-nav ul{
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#trail-list {
+    width: 100%;
+    text-align: center;
+}
+
+#trail-list td {
+    width: 33%;
+}
+
+#trail-list table tr {
+    border-bottom: 2px solid;
+    margin-top: 2rem;
+}
+
+#camping-images {
+    display: block;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* .campground-accom {
+    width: 100%;
+} */
+
+.campground-accom{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+}
+
+.campground-accom li {
+    margin: 2rem 0; 
+    font-size: 1.25rem;
+    list-style: none;
+}
+
+.form-control {
+    width: 100%;
+    
+}
+
+.form-input input {
+    height: 1.8rem;
+    width: 80%;
+    font-size: 1.2rem;
+    padding: 1rem 1rem;
+    margin: .5rem 0;
+}
+
+.form-input textarea{
+    font-family: 'Public Sans', sans-serif;
+    width: 80%;
+    height: 200px;
+    align-items: top;
+    padding: 1rem 1rem;
+    font-size: 1.25rem;
+    resize: vertical;
+}
+
+.form-input button {
+    padding: .5rem 1.25rem;
+    font-size: 1.25rem;
+    margin-top: 5%;
+    cursor: pointer;
+}
+
+.form-input button:hover {
+    background-color: rgb(188, 235, 199);
+}
+
+@media screen and (max-width: 1600px){
+
+    #social-media-nav {
+        bottom: -410%;
+    
+    } 
+    
+
+
+}
+
+@media screen and (max-width: 1582px){
+
+        #social-media-nav {
+            bottom: -410%;
+        
+        } 
+        
+    
+
+}
+
+@media screen and (max-width: 768px){
+
+    body {
+        margin-top: 15%;
+    }
+
+    .content {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .content-hidden {
+        display: none;
+    }
+
+    .first-content {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    #home-img {
+        width: 135%;
+        transform: translateX(-25%);
+        overflow: hidden;
+    }
+
+    #home-headers {
+        margin-top: 28%;
+        margin-left: 35%;
+        margin-right: auto;
+
+        
+    }
+
+    .section-container {
+        margin-top: 15%;
+        height: auto;
+    }
+
+    #trail-system {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #section2 {
+        margin-top: 18%;
+    }
+
+
+    .content-container {
+        width: 90%;
+    }
+
+    .block-content-header {
+        width: 100%;
+    }
+
+    .block-content-header h1 {
+        font-size: 2rem;
+    }
+
+    .content-container-cards {
+        display: block;
+        
+    }
+
+    .content-card-sm {
+        width: 100%;
+        height: auto;
+        margin: 3rem 0;
+        position: relative;
+
+    }
+
+    .content-card-sm-logo {
+        width: 50%;
+        height: auto;
+        margin: 3rem 0;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .content-card-sm-img-logo img{
+        width: 50%;
+        height: auto;
+        display: flex;
+        margin: auto auto;
+    
+    }
+
+    #sts {
+        width: 60%;
+        margin-top: 20%;
+    }
+
+    #sts-video {
+        width: 560px;
+        height: 315px;
+    }
+
+    #social-media-nav {
+        bottom: -140%;
+    }
+
+    #social-media-nav a{
+        color: white;
+    }
+
+    .hr-container {
+        width: 100%;
+    }
+
+    .footer li {
+        margin: auto 15%;
+    }
+
+}
+
+@media screen and (max-width: 414px){
+    .section1 {
+        width: 100%;
+        
+    }
+
+    .first-content {
+        margin: 0 0;
+        width: 100%;
+    }
+
+    .first-content-mobile {
+        display: block;
+        height: 812px;
+    }
+
+    .first-content-mobile img {
+        transform: translateX(-52%);
+        
+    }
+
+    .landing-intro-mobile {
+        display: flex;
+        z-index: 1;
+    }
+
+    #home-img {
+        background: url('/images/coldwater1.jpg');
+        margin-left: auto;
+        margin-right: auto;
+        width: 130%;
+        height: 90vh;
+        /* display: flex; */
+        display: none;
+        transform: translateX(0%);
+        overflow: visible;
+    }
+
+    #home-headers {
+        /* margin-top: 20%; */
+        transform: translateY(-250%);
+        margin-left: 5%;
+        margin-right: auto;
+        color: rgb(255, 255, 255);
+        font-family: 'Crimson Text', serif;
+        
+    }
+    
+    #home-headers h1{
+        font-size: 3.25rem;
+        text-align: right;
+    }
+
+    .content-container {
+        width: 100%;
+    }
+
+    .block-content-header {
+        margin-bottom: 15%;
+        margin-top: 10%;
+    }
+
+    #intro-header {
+        letter-spacing: .45rem;
+        font-size: 2.5rem;
+    }
+
+    .block-content-content {
+        width: 90%;
+    }
+
+    .block-content-images {
+        width: 100%;
+    }
+
+    .content-container-cards {
+        width: 100%;
+    }
+
+    .centered-btn-container {
+        width: auto;
+    }
+
+    .block-content-video {
+        display: none;
+    }
+
+    #sts h3{
+        letter-spacing: .45rem;
+    }
+
+    .block-content-video-mobile {
+        display: flex;
+    }
+
+    #phone-number {
+        font-size: 2rem;
+       
+    }
+    
+    .footer-bottom {
+        height: 100%;
+    }
+
+    #social-media-nav {
+        transform: translateY(-180%);
+        
+    }
+
+    #social-media-links {
+        font-size: 2rem;
+    }
+
+    .block-content-header {
+        width: 90%;
+        margin-top: 15%;
+        /* display: flex; */
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .content-card-m {
+        width: 100%;
+    }
+
+    .content-card-m-img {
+        width: 100%;
+    }
+
+    
+
+}
+
+@media screen and (max-width: 375px){
+
+    #social-media-nav {
+        transform: translateY(-200%);
+        
+    }
+
+}

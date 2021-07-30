@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/shop.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="/css/fontawesome/css/all.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Libre+Baskerville:wght@400;700&family=Public+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+</head>
+<%- include('../includes/nav.ejs') %>
+<body>
+<main class="main-content">   
+    <section class="section-container" id="section2">
+        <div class="content-container">
+            <div class="block-content-header" style="margin-bottom: 0%; text-align: left;">
+                <h3>CART</h3>
+            </div>
+            <div class="block-content" style="margin-top: 3.5%;">
+                <div class="shop-content" id="shop-content-cart-desktop">
+                    
+                   
+                        
+                     
+                    
+                    <% if (products.length > 0) { %>
+                        
+                            <table class="items-list">
+                                <th style="text-align: left;">Item</th>
+                                <th></th>
+                                <th>Size</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th></th>
+                                
+                                <% products.forEach(product => {  %>
+                                    <tr>
+                                        <td style="text-align: left;"><%= product.title %></td>
+                                        <td><img src="/images/store/<%= product.image.slice(19) %>" alt="<%= product.title %>"></td>
+                                        <td><%= product.size %></td>
+                                        <td id="quantity"><%= product.quantity %></td>
+                                        <td id="price">$<%= product.price %></td>
+                                        <td style="width: 5%;">
+                                            <form action="/cart-delete-item" id="itemDelete" method="POST">
+                                                <input type="hidden" value="<%= product.productId._id %>" name="productId">
+                                                <input type="hidden" value="<%= product.size %>" name="size">
+                                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                                <button class="delete" type="submit"><i class="fas fa-minus-circle"></i></button>
+                                            
+                                            </form>
+                                            </td>
+                                        
+                                    </tr>
+
+                                    
+                                    <% }) %>
+
+                                </table>
+                            </div>
+                            <div id="shop-content-cart-mobile">
+                                <% if (products.length > 0) { %>
+                                    <% products.forEach(product => {  %>
+
+                                        
+
+            
+                                    <div class="mobile-cart-item">
+                                        <h2><%= product.title %></h2>
+            
+                                    </div>
+                                    <div class="mobile-cart-image">
+                                        <img src="/images/store/<%= product.image.slice(19) %>" alt="<%= product.title %>">
+                                    </div>
+                                    <div class="mobile-cart-secondary-info">
+                                        <div class="mobile-cart-size"><p>Size: <%= product.size %> </p></div>
+                                        <div class="mobile-cart-quantity"><p>Quantity: <%= product.quantity %> </p></div>
+
+                                    </div>
+                                    <div class="checkout-delete-btn">
+                                        <form action="/cart-delete-item" id="itemDelete" method="POST">
+                                            <input type="hidden" value="<%= product.productId._id %>" name="productId">
+                                            <input type="hidden" value="<%= product.size %>" name="size">
+                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                            <button class="delete-mobile" type="submit">REMOVE</button>
+                                        
+                                        </form>
+                                    </div>
+                                    <% if (products.length > 1) { %>
+                                        <hr>
+                                        <% } %>
+                                        
+
+                                    <% }) %>
+                                    <% } else { %>
+                                        <h1>Your Cart is Empty</h1>
+                                        <% } %>
+            
+                            </div>
+
+                                <hr style="margin-top: 10%;">
+                                <div class="cart-container-btm">
+                                <div class="total-summary">
+                                    <h3>TOTAL</h3>
+                                    <h2 id="total-sum">$</h2>
+                                </div>
+                                
+                                    <div class="checkout-btn-container">
+                                        
+                                        <h3 id="order-btn"><a href="cart/shipping-info">CHECK OUT</a></h3>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            
+                                
+                        <% } else { %>
+                            <h1>Your Cart is Empty</h1>
+                        <% } %>
+                    
+
+                </div>
+                
+                      
+            </div>
+                
+ 
+                
+            </div>
+            </div>
+        </div>               
+    </section>
+    
+
+</main>
+
+<div class="footer">
+    <script src="/js/cart.js"></script>
+    <div class="footer-bottom">
+        <img src="images/footer-bg.png">
+        <span id="social-media-nav">
+            <ul>
+                <li><a href="#"><i class="fab fa-instagram" id="social-media-links"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook" id="social-media-links"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter" id="social-media-links"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</main>
+</div>
+<script src="/js/nav.js"></script>
+        <script src="/js/cart.js"></script> 
+</body>
+</html>

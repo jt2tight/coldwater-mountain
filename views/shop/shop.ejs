@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/shop.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="/css/fontawesome/css/all.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Libre+Baskerville:wght@400;700&family=Public+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+</head>
+<%- include('../includes/nav.ejs') %>
+<body>
+<main class="main-content">   
+    <section class="section-container" id="section2">
+        <div class="content-container">
+            <div class="block-content-header" style="margin-bottom: 0%; text-align: left;" id="shop-header">
+                <h3>SHOP</h3>
+            </div>
+            <div class="block-content" style="margin-top: 3.5%;">
+                <div class="shop-content">
+                    <div class="shop-nav">
+                        <ul>
+                            <li>APPAREL</li>
+                            <li>SHUTTLES</li>
+                            
+                        </ul>
+                    </div>
+                    <div class="shop-items-window">
+                        
+                     
+                    
+                    <% if (products) { %>
+                        <div class="grid">
+                            <% products.forEach(product => {  %>
+                                <article class="card-product-item">
+                                    <header class="card_header">
+                                        <h3 class="product_title">
+                                            <%= product.title %>
+                                        </h3>
+                                    </header>
+                                    <div class="card_image">
+                                        <img src="/images/store/<%= product.image.slice(19) %>" alt="<%= product.title %>">
+                                    </div>
+                                    <div class="card_content">
+                                        <h2 class="product__price">$
+                                            <%= product.price %>
+                                        </h2>
+                                        
+                                    </div>
+                                    <form action="/post-cart" method="POST" novalidate>
+                                        <div class="card__actions" id="size-quantity-container">
+                                            <div id="size-label">Size</div>
+                                            <div id="size-select-container">
+                                                <select name="size" class="selection" id="size">
+                                                   
+                                                    <option value="S">S</option>
+                                                    <option value="M">M</option>
+                                                    <option value="L">L</option>
+                                                    
+                                                    
+                                                    </select>
+                                            </div>
+                                            
+                                        </div>
+                                    <div class="card__actions">
+                                        <a href="/products/<%= product._id %>" class="card-btn">Details</a>
+                                        <input type="hidden" name="productId" value="<%= product._id %>"">
+                                            <input type="hidden" name="title" value="<%= product.title %>">
+                                            <input type="hidden" name="image" value="<%= product.image %>">
+                                            <input type="hidden" name="price" value="<%= product.price %>">
+
+                                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    
+                                            <button  class='card-btn' type="submit">Add to Cart</button>
+                                            
+                                            
+                                            
+                                        </form>
+                                    </div>
+                                    
+                                </article>
+                                <% }) %>
+                        </div>
+                        <% } else { %>
+                            <h1>No Products Found!</h1>
+                        <% } %>
+                    </div>
+
+                </div>
+                      
+            </div>
+                
+ 
+                
+            </div>
+            </div>
+        </div>               
+    </section>
+    
+
+</main>
+
+<%- include('../includes/footer.ejs') %>

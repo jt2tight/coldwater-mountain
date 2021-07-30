@@ -1,0 +1,72 @@
+<%- include('./includes/head.ejs') %>
+<body>
+<main class="main-content">   
+    <section class="section-container" id="section2">
+        <div class="content-container">
+            <div class="block-content">
+                
+                <div class="block-content-header">
+                    <h2>VOLUNTEER</h2>
+                </div>
+                
+                <div class="block-content-content" style="text-align: center;">
+                    <br>
+                    <p style="width: 88%; margin-left: auto; margin-right: auto;">
+                        Thank you for your interest in volunteering! We do not have a set schedule for trail maintenance during the riding season, however, if you join our list
+                        we will notify you two weeks prior to scheduled trail maintenance.    
+                        </p>
+                    </p>
+                   
+                </div>
+                
+            <div class="block-content">
+                <% if(errorMessage) { %>
+                    <div class="black-content-header" style="margin-bottom: 5%; color: red; text-align: center;">
+                        <h3><%= errorMessage %></h3>
+                    </div>
+                    <% } %>
+            
+                <div class="block-content-content" style="text-align: center;">
+
+                    <form class="form-control" method="POST" action="volunteer-submit" novalidate>
+                        <div class="form-input">
+                            <input type="email" name="email" placeholder="Email" style="width: 40%;">
+                        </div>
+                        
+                        <div class="form-input">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <button type="submit" value="Submit" >SUBMIT</button>
+                        </div>
+                        
+                        
+
+                    </form>
+                </div>
+                
+                
+                </div>
+                
+            </div>
+            </div>
+                      
+    </section>
+    
+
+</main>
+<div class="footer">
+    <div class="footer-bottom">
+        <img src="../images/footer-bg.png">
+        <span id="social-media-nav">
+            <ul>
+                <li><a href="#"><i class="fab fa-instagram" id="social-media-links"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook" id="social-media-links"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter" id="social-media-links"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</main>
+</div>
+<script src="/js/nav.js"></script>  
+</body>
+</html>

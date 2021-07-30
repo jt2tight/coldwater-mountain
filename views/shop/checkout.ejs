@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/shop.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="/css/fontawesome/css/all.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Libre+Baskerville:wght@400;700&family=Public+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+</head>
+<%- include('../includes/nav.ejs') %>
+    <body>
+        
+        <main>
+
+            <div class="checkout_content">
+
+            <div class="shipping-info-checkout-container">
+                <ul class="shipping_info_items">
+                    <li><h3 style="margin-bottom: 2.5%;">Shipping Info</h3></li>
+                    <li><%= shippingInfo.name.firstName + '' + shippingInfo.name.lastName %></li>
+                    <li><%= shippingInfo.address.address1 %></li>
+                    <% if(shippingInfo.address.address2) { %> 
+                        <li><%= shippingInfo.address.address2 %></li>
+                        <% } %>
+                    <li><%= shippingInfo.address.city + ', ' %> 
+                        <% if(shippingInfo.address.state.length == 2) { %>
+                            <%= shippingInfo.address.state.toUpperCase() %>
+                        <% } %>
+                        <%= shippingInfo.address.state[0].toUpperCase() + shippingInfo.address.state.slice(1) + ' ' + shippingInfo.address.zipcode %>
+                    
+                    </li>
+                    <li><BR>
+                    <p>Receipt will be mailed to <%= shippingInfo.name.email %></p></li>
+                    
+                </ul>
+                <hr>
+            </div>
+            <table class="items-list" id="checkout_table">
+                <th style="text-align: left;"></th>
+                
+                <th></th>
+                <th></th>
+                
+                
+                
+                <% products.forEach(product => {  %>
+                    <tr>
+                        <td style="text-align: left; width: 25%;">
+                            <h4><%= product.title %></h4>
+                            <p>Size <%= ' '  + product.size  + ' ' + 'x ' + '( ' + product.quantity + ' )' %></p>
+                            <p></p>
+                        
+                        </td>
+                        <td id="price" style="text-align: center;">$<%= product.price %></td>
+                        <td id="checkout-img"><img src="/images/store/<%= product.image.slice(19) %>" alt="<%= product.title %>" style="width: 30%;">
+                            <input type="hidden" value="<%= product.productId._id %>" name="productId">
+                            <input type="hidden" value="<%= product.size %>" name="size"></td>
+                        
+                        
+                    </tr>
+                    <% }) %>
+
+                </table>
+                <hr>
+
+            
+        
+        
+        <div class="cart-container-btm">
+            <div class="total-summary">
+                <h2>Total: $<%= totalSum %></h2>
+            </div>
+            </div>
+            <div style="display: flex; width: 100%;">
+                <button id="checkout-btn" class="btn">PAYMENT</button>
+                <script src="https://js.stripe.com/v3/"></script>
+                <script>
+                    var stripe = Stripe('pk_test_51HmMH5A7ie4l3C4y2PDsS0Pp0qyy03w9ZvZ9yIUOI2UdcKg2hunLY7U8Cy6JVtrehZC5fkd0c5IGeYBvQDTJ68Fx00eOH9dsUd');
+                    var checkoutBtn = document.getElementById('checkout-btn');
+                    checkoutBtn.addEventListener('click', function(){
+                        stripe.redirectToCheckout({
+                            sessionId: '<%= sessionId %>'
+                        });
+                    })
+                </script>
+            </div>
+        </div>
+        
+    </div>
+        </main>
+        <div class="footer">
+            <div class="footer-bottom">
+                <img src="../images/footer-bg.png">
+                <span id="social-media-nav">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-instagram" id="social-media-links"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook" id="social-media-links"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter" id="social-media-links"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        
+        </main>
+        </div>
+        <script src="/js/nav.js"></script>
+        <script src="/js/cart.js"></script> 
+        <script>
+            let formName = document.querySelector('#itemDelete');
+        
+            function submitOnClick(formName){
+            document.forms[formName].submit();
+        }
+        </script>
+        </body>
+        </html>

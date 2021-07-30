@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/shop.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="/css/fontawesome/css/all.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Libre+Baskerville:wght@400;700&family=Public+Sans:wght@400;600&family=Source+Sans+Pro:wght@400;600;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+</head>
+<%- include('../includes/nav.ejs') %>
+    <body>
+        
+        <main class="main-content">
+            <section class="section-container" id="section2">
+            <div class="content-container">
+                <div class="block-content-header">
+                    <h3>ORDER DETAILS</h3>
+                </div>
+                <div class="block-content">
+                    
+                    <ul class="cart__item-list">
+                        <% products.forEach(p => { %>
+                            <ul class="cart_line_item">
+                                <li class="cart__item-name">
+                                  <h4><%= p.productId.title %></h4>
+                                    </li>
+                                <li class="cart__item">
+                                    Size: <%= p.size %>
+                                </li>
+                                <li class="cart__item">
+                                    Quantity: <%= p.quantity %>
+                                </li>
+                                
+                            </ul>
+                            
+                                
+                        <% }) %>
+                    </ul>
+                    <div class="centered">
+                        <h3 style="text-align: center; margin-top: 10%;">Total: $<%= totalSum %></h3>
+                        <hr>
+                    </div>
+                    <div class="shipping-info-container">
+                        <div class="block-content-header">
+                            <h3 style="margin-top: 15%;">SHIPPING INFO</h3>
+                        </div>
+                        <% if(errorMessage) { %>
+                            <div class="black-content-header" style="margin-bottom: 5%; color: red; text-align: center;">
+                                <h3><%= errorMessage %></h3>
+                            </div>
+                            <% } %>
+                        <div class="shipping-info-form">
+                        <form method="POST" action="/post-shipping" novalidate>
+                            <div class="shipping-info-name">
+                                <input type="text" name="first_name" placeholder="First Name" value="<%= oldInput.first_name %>">
+                            <input type="text" name="last_name" placeholder="Last Name" value="<%= oldInput.last_name %>">
+
+                            </div>
+                            
+                            <input type="text" name="email" placeholder="E-mail" value="<%= oldInput.email %>">
+                            <input type="text" name="address1" placeholder="Address" value="<%= oldInput.address1 %>">
+                            <input type="text" name="address2" placeholder="Apartment Number/Suite (Optional)" required="false" value="<%= oldInput.address2 %>">
+                            <input type="text" name="city" placeholder="City" value="<%= oldInput.city %>">
+                            <input type="text" name="state" placeholder="State" value="<%= oldInput.state %>">
+                            <input type="text" name="zipcode" placeholder="Zipcode" value="<%= oldInput.zipcode %>">
+                            <div class="billing-btn-container">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                <button id="billing-btn" class="btn" type="submit">SUBMIT</button>
+
+                            </div>
+                                
+                                
+                            </div>
+                            
+                        </form>
+                    </div>
+                
+                
+                </div>
+            </div>
+        </section>
+
+            
+            
+        </main>
+        <div class="footer">
+            <div class="footer-bottom">
+                <img src="../images/footer-bg.png">
+                <span id="social-media-nav">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-instagram" id="social-media-links"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook" id="social-media-links"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter" id="social-media-links"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </main>
+        </div>
+        <script src="/js/nav.js"></script>
+        <script src="/js/cart.js"></script> 
+        <script>
+            let formName = document.querySelector('#itemDelete');
+        
+            function submitOnClick(formName){
+            document.forms[formName].submit();
+        }
+        </script>
+        </body>
+        </html>

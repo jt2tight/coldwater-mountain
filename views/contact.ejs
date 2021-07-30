@@ -1,0 +1,70 @@
+<%- include('./includes/head.ejs') %>
+<body>
+<main class="main-content">   
+    <section class="section-container" id="section2">
+        <div class="content-container">
+            <div class="block-content">
+                
+                <div class="block-content-header">
+                    <h2>CONTACT US</h2>
+                </div>
+                
+                <div class="block-content-content" style="text-align: center;">
+                    <br>
+                    <p style="width: 88%; margin-left: auto; margin-right: auto;">
+                        <h3 style="line-height: 2.5rem;">1234 Electric Ave
+                        <br>Anniston, AL
+                        <br>12345 
+                        </h3>
+                        </p>
+                    <p>
+                        <h2 style="margin-top: 5%;" id="phone-number">(123)-456-7890</h2>
+                    </p>
+                    <p style="width: 88%; margin-left: auto; margin-right: auto; margin-top: 10%;">
+                        If you'd like to report any fallen debris, damage, or erosion on the trails, please <a href="#">e-mail the trail mailbox</a> directly. 
+                        <p>For all other general inquiries please fill out the form below! 
+                        </p>
+                    </p>
+                   
+                </div>
+                
+            <div class="block-content">
+
+            
+                <div class="block-content-content" style="text-align: center;">
+                    <% if(errorMessage) { %>
+                        <div class="black-content-header" style="margin-bottom: 5%; color: red;">
+                            <h3><%= errorMessage %></h3>
+                        </div>
+                        <% } %>
+
+                    <form class="form-control" method="POST" action="/contact" novalidate>
+                        <div class="form-input">
+                            <input type="email" name="email" placeholder="Email">
+                        </div>
+                        <div class="form-input">
+                            <input type="text" name="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-input">
+                            <textarea placeholder="Message" name="message" id="message"></textarea>
+                                
+                        </div>
+                        <div class="form-input">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <button type="submit" value="Submit">SUBMIT</button>
+                        </div>
+                    </form>
+                </div>
+                
+                
+                </div>
+                
+            </div>
+            </div>
+        </div>               
+    </section>
+    
+
+</main>
+
+<%- include('./includes/footer.ejs') %>
